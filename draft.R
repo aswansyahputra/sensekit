@@ -1,5 +1,7 @@
 if (interactive()) {
   library(shiny)
+  library(shinyjs)
+  library(tidyverse)
   
   shinyApp(
     ui = fluidPage(
@@ -14,10 +16,10 @@ if (interactive()) {
     server = function(input, output) {
       paramater_atribut <- reactive({
         tagList(
-          map(seq_along(rnorm(input$jumlah_atribut)), ~ )
+          map(seq_along(rnorm(input$jumlah_atribut)), ~ 
           numericInput("skala_bawah", "Skala Bawah", value = 0),
           numericInput("skala_atas", "Skala Atas", value = 10),
-        )
+        ))
       })
       
       kontainer <- eventReactive(input$buat, {
